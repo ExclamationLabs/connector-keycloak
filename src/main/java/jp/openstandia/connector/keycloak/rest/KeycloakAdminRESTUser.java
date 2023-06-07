@@ -465,7 +465,7 @@ public class KeycloakAdminRESTUser implements KeycloakClient.User {
                             configuration.getRedirectUri(), requiredActionsList);
                 } else {
                     LOGGER.ok("Invoking Execute Actions Email with actions [{0}] following creation of user id [{1}]",
-                            requiredActionsList.toArray(), userId);
+                            requiredActionsList, userId);
                     users(realmName).get(userId).executeActionsEmail(requiredActionsList);
                 }
                 LOGGER.ok("Completed Execute Actions Email submission for user id [{0}]", userId);
