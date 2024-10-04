@@ -57,7 +57,7 @@ public class KeycloakAdminRESTAdminClient implements KeycloakClient {
 
         try {
             RuntimeDelegate.getInstance();
-        } catch (RuntimeException e) {
+        } catch (Throwable e) {
             // Set the implementation directly as a workaround
             RuntimeDelegate.setInstance(new ResteasyProviderFactoryImpl());
         }
