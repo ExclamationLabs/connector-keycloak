@@ -12,7 +12,7 @@
 
     <groupId>jp.openstandia.connector</groupId>
     <artifactId>connector-keycloak</artifactId>
-    <version>1.1.9</version>
+    <version>${revision}${changelist}</version>
     <packaging>jar</packaging>
 
     <name>Keycloak Connector</name>
@@ -48,16 +48,18 @@
 
     <distributionManagement>
         <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+            <id>artifact-registry</id>
+            <url>https://us-east1-maven.pkg.dev/provision-general-operations/provision-connectors</url>
         </snapshotRepository>
         <repository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <id>artifact-registry</id>
+            <url>https://us-east1-maven.pkg.dev/provision-general-operations/provision-connectors</url>
         </repository>
     </distributionManagement>
 
     <properties>
+        <revision>1.1.9</revision>
+        <changelist/>
         <connectorPackage>jp.openstandia.connector.keycloak</connectorPackage>
         <connectorClass>KeycloakConnector</connectorClass>
     </properties>
@@ -77,6 +79,16 @@
             <id>evolveum-nexus-snapshots</id>
             <name>Internal Releases</name>
             <url>https://nexus.evolveum.com/nexus/content/repositories/snapshots/</url>
+        </repository>
+        <repository>
+            <id>artifact-registry</id>
+            <url>https://us-east1-maven.pkg.dev/provision-general-operations/provision-connectors</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
         </repository>
     </repositories>
 
@@ -111,7 +123,7 @@
                 </dependencies>
             </plugin>
 
-            <plugin>
+<!--            <plugin>
                 <groupId>org.sonatype.plugins</groupId>
                 <artifactId>nexus-staging-maven-plugin</artifactId>
                 <version>1.6.8</version>
@@ -160,7 +172,7 @@
                 <version>1.6</version>
                 <configuration>
                     <gpgArguments>
-                        <arg>--pinentry-mode</arg>
+                        <arg>&#45;&#45;pinentry-mode</arg>
                         <arg>loopback</arg>
                     </gpgArguments>
                 </configuration>
@@ -173,7 +185,7 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin> -->
         </plugins>
     </build>
 
